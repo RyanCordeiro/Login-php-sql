@@ -11,11 +11,11 @@ $logado = 'deslogado';
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-$query = "SELECT * FROM `divulgadores` WHERE usuario='$usuario' AND senha='$senha'";
+$query = "SELECT * FROM `usuarios` WHERE usuario='$usuario' AND senha='$senha'";
 $result = mysqli_query($conexao, $query);
 $row = mysqli_num_rows($result);
 
-$pdo = new PDO('mysql:host=127.0.0.1:3306;dbname=u468517930_next','u468517930_next','Pietro.2007');
+$pdo = new PDO('mysql:host=localhost;dbname=u468517930_next','u468517930_next','');
 $sql = $pdo->prepare("SELECT * FROM `divulgadores` WHERE usuario='$usuario'");
 $sql->execute();
 $info = $sql->fetchAll();
@@ -53,7 +53,7 @@ if ($row != 1) {
     $result = mysqli_query($conexao, $query);
     $row = mysqli_num_rows($result);
     
-    $pdo = new PDO('mysql:host=127.0.0.1:3306;dbname=u468517930_next','u468517930_next','Pietro.2007');
+    $pdo = new PDO('mysql:host=localhost;dbname=u468517930_next','u468517930_next','');
     $sql = $pdo->prepare("SELECT * FROM `adms` WHERE usuario='$usuario'");
     $sql->execute();
     $info = $sql->fetchAll();
@@ -97,16 +97,7 @@ location="login.php";
 </script>
 ';
 }}
-/*
-session_start();
-include('conexao.php');
 
-$pdo = new PDO ('mysql:host=localhost;dbname=teste','root','');
-$sql = $pdo->prepare("SELECT * FROM `divulgadores` WHERE senha = ''");
-$sql->execute();
-
-
-*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
